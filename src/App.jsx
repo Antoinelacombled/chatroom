@@ -1,7 +1,7 @@
 import './App.css'
 import Form from './Form/Form';
 import Messages from './containers/Messages';
-import Settings from './Settings/Settings';
+import Settings from './containers/Settings';
 
 
 

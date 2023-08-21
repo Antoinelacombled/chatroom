@@ -1,3 +1,5 @@
+import { CHANGE_INPUT_PSEUDO, SAVE_PSEUDO } from '../actions/chat'
+
 const initialState = {
     messages: [
         {
@@ -16,11 +18,25 @@ const initialState = {
             content: "croquette svp",
         },
     ],
-    inputPseudo :'',
+    pseudo: 'Chat fu',
+    inputPseudo: '',
 };
 
 const chatReducer = (state = initialState, action = {}) => {
     switch (action.type) {
+
+        case CHANGE_INPUT_PSEUDO:
+            return {
+                ...state,
+                inputPseudo: action.value,
+            };
+            break
+        case SAVE_PSEUDO:
+            return {
+                ...state,
+                pseudo: state.inputPseudo,
+            }
+            break
         default: return state;
     }
 };
