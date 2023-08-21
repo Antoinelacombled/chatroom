@@ -1,0 +1,32 @@
+.messages {
+    padding: 2rem;
+}
+
+.message {
+    margin-bottom: 2em;
+
+    .message-author {
+        font-size: 0.9rem;
+    }
+
+    .message-body {
+        background-color: white;
+        color: rgb(128, 169, 238);
+        display: inline-block;
+        margin-top: 0.8em;
+        padding: 0.9em 1.3em;
+        border-radius: 1.2rem;
+
+        &::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-bottom: 10px solid rgb(255, 255, 255);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            position: absolute;
+            margin-top: -1.4em;
+        }
+    }
+
+}

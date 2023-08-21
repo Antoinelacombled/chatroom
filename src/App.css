@@ -1,0 +1,15 @@
+#root {
+  padding: 2rem;
+}
+
+body {
+  background-color: rgb(98, 0, 255);
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: rgb(202, 242, 253);
+  position: relative; 
+}

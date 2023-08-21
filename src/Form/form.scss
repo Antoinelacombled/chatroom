@@ -1,0 +1,28 @@
+.form {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+   
+
+
+    .input-message {
+        width: 100%;
+        padding: 1em;
+        font-size: 1.2em;
+        padding-right: 4rem;
+        border: none;
+        outline: none;
+    }
+
+    .button-submit {
+        border: none;
+        height: 4rem; 
+        background-color: transparent;
+        color: rgb(128, 169, 238);
+        position: absolute;
+        margin-left: 55em; 
+        margin-top: -4.2em;
+        width: 4em; 
+    }
+}
