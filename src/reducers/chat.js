@@ -1,25 +1,16 @@
-import { CHANGE_INPUT_PSEUDO, SAVE_PSEUDO } from '../actions/chat'
+import {
+    CHANGE_INPUT_PSEUDO,
+    SAVE_PSEUDO,
+    CHANGE_INPUT_MESSAGE,
+    SEND_MESSAGE
+} from '../actions/chat'
 
 const initialState = {
     messages: [
-        {
-            id: 1,
-            author: "SuperChat",
-            content: "chalut cha va?",
-        },
-        {
-            id: 1,
-            author: "SuperChat",
-            content: "Miaou",
-        },
-        {
-            id: 1,
-            author: "SuperChat",
-            content: "croquette svp",
-        },
     ],
     pseudo: 'Chat fu',
     inputPseudo: '',
+    inputMessage: '',
 };
 
 const chatReducer = (state = initialState, action = {}) => {
@@ -35,8 +26,37 @@ const chatReducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 pseudo: state.inputPseudo,
-            }
+                inputPseudo: ''
+            };
             break
+        case CHANGE_INPUT_MESSAGE:
+            return {
+                ...state,
+                inputMessage: action.value,
+            };
+            break
+        case SEND_MESSAGE: {
+            const newId = state.messages.length + 1;
+
+            const newMessage = {
+                id: newId,
+                author: state.pseudo,
+                content: state.inputMessage,
+                isMine: true,
+            };
+            const newMessageArray = [
+                ...state.messages,
+                newMessage
+            ]
+
+            return {
+                ...state,
+                messages: newMessageArray,
+                inputMessage: '',
+            };
+        }
+
+
         default: return state;
     }
 };

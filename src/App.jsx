@@ -1,5 +1,5 @@
 import './App.css'
-import Form from './Form/Form';
+import Form from './containers/Form';
 import Messages from './containers/Messages';
 import Settings from './containers/Settings';
 
