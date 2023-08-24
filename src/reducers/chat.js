@@ -11,6 +11,7 @@ const initialState = {
     pseudo: 'Chat fu',
     inputPseudo: '',
     inputMessage: '',
+    authentified: false,
 };
 
 const chatReducer = (state = initialState, action = {}) => {
