@@ -12,6 +12,8 @@ const initialState = {
     inputPseudo: '',
     inputMessage: '',
     authentified: false,
+    inputEmail: '',
+    inputPassword: '',
 };
 
 const chatReducer = (state = initialState, action = {}) => {

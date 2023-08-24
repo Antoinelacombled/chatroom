@@ -23,10 +23,10 @@
 
 
         &:focus {
-            border-color: #f0f;
+            border-color: rgb(247, 0, 255);
 
             &+.label {
-                color: #f0f;
+                color: rgb(247, 0, 255);
             }
         }
     }
