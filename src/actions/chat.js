@@ -1,7 +1,8 @@
 export const CHANGE_INPUT_PSEUDO = 'CHANGE_INPUT_PSEUDO';
-export const SAVE_PSEUDO = 'SAVE_PSEUDO'
-export const CHANGE_INPUT_MESSAGE = 'CHANGE_INPUT_MESSAGE'
-export const SEND_MESSAGE = 'SEND_MESSAGE'
+export const SAVE_PSEUDO = 'SAVE_PSEUDO';
+export const CHANGE_INPUT_MESSAGE = 'CHANGE_INPUT_MESSAGE';
+export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const CHANGE_INPUT_OF_LOGIN = 'CHANGE_INPUT_OF_LOGIN';
 
 export const changeInputPseudo = (newValue) => ({
     type: CHANGE_INPUT_PSEUDO,
@@ -20,4 +21,10 @@ export const changeInputMessage = (newValue) => ({
 
 export const sendMessage = () => ({
     type: SEND_MESSAGE,
+});
+
+export const changeInputOfLogin = (identifier, newValue) => ({
+    type: CHANGE_INPUT_OF_LOGIN,
+    inputIdentifier: identifier,
+    newValue,
 });

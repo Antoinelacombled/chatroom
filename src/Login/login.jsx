@@ -4,17 +4,25 @@ import React from "react";
 import Field from '../Field/Field.jsx'
 import './login.scss'
 
-const Login = ({ email, password }) => {
+const Login = ({ email, password, changeValue, submitLogin }) => {
     const handleChange = (identifier, newValue) => {
 
-        if (identifier === 'email') {
-            console.log(`Nouvelle valeur pour l'email : ${newValue}`);
-        } else if (identifier === 'password') {
-            console.log(`Nouvelle valeur pour le mdp : ${newValue}`)
-        }
+        //     if (identifier === 'email') {
+        //         console.log(`Nouvelle valeur pour l'email : ${newValue}`);
+        //     } else if (identifier === 'password') {
+        //         console.log(`Nouvelle valeur pour le mdp : ${newValue}`)
+        //     }
+        changeValue(identifier, newValue);
     };
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        submitLogin();
+    };
+
+
     return (
-        <form className="login">
+        <form className="login" onSubmit={handleSubmit}>
 
             <Field
                 identifier='email'
@@ -32,6 +40,7 @@ const Login = ({ email, password }) => {
                 value={password}
                 changeField={handleChange}
             />
+            <button type="submit">Valider</button>
         </form>
     );
 };

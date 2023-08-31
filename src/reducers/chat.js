@@ -2,7 +2,8 @@ import {
     CHANGE_INPUT_PSEUDO,
     SAVE_PSEUDO,
     CHANGE_INPUT_MESSAGE,
-    SEND_MESSAGE
+    SEND_MESSAGE,
+    CHANGE_INPUT_OF_LOGIN,
 } from '../actions/chat'
 
 const initialState = {
@@ -58,9 +59,27 @@ const chatReducer = (state = initialState, action = {}) => {
                 inputMessage: '',
             };
         }
+        case CHANGE_INPUT_OF_LOGIN:
+
+            if (action.inputIdentifier === 'email') {
+                return {
+                    ...state,
+                    inputEmail: action.newValue,
+                };
+
+            } if (action.inputIdentifier === 'password') {
+                return {
+                    ...state,
+                    inputPassword: action.newValue,
+                };
+            }
 
 
-        default: return state;
+
+
+
+        default:
+            return state;
     }
 };
 
