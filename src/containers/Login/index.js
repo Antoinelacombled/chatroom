@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { changeInputOfLogin } from "../../actions/chat";
+import { changeInputOfLogin, submitLogin } from "../../actions/chat";
 import Login from "../../Login/login";
 
 const mapStateToProps = (state) => ({
@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(action);
     },
     submitLogin: () => {
-        console.log('submit');
+        dispatch(submitLogin);
     }
 });
 
