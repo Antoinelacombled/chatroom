@@ -1,12 +1,20 @@
-import { createStore } from 'redux';
-import { devToolsEnhancer } from "redux-devtools-extension";
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from "redux-devtools-extension";
+
+import logMiddleware from '../middleware/logMiddleware';
+
+const enhancers = composeWithDevTools(
+    applyMiddleware(
+        logMiddleware,
+    )
+);
 
 
 import reducer from '../reducers/chat';
 
 const store = createStore(
     reducer,
-    devToolsEnhancer()
+    enhancers,
 );
 
 export default store; 
