@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(action);
     },
     submitLogin: () => {
-        dispatch(submitLogin);
+        dispatch(submitLogin());
     }
 });
 

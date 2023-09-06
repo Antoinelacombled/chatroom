@@ -6,14 +6,14 @@ import Login from './containers/Login';
 
 
 
-const App = ({ authentified }) => (
+const App = ({ authentified, loading }) => (
   <div className='app'>
     <Messages />
     {authentified && <Form />}
     {authentified && <Settings />}
     {!authentified && <Login />}
+    {loading && (<div> Veuillez Patienter...</div>)}
   </div>
-
 );
 
 

@@ -3,6 +3,7 @@ import App from "../../App";
 
 const mapStateToProps = (state) => ({
 authentified: state.authentified,
+loading: state.loading
 });
 
 
