@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: rgb(98, 0, 255);
+  background-color: rgb(215, 215, 215);
 }
 
 .app {
@@ -11,5 +11,5 @@ body {
   margin: 0 auto;
   height: 100vh;
   background-color: rgb(202, 242, 253);
-  position: relative; 
+  position: relative;
 }

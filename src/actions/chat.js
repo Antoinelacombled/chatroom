@@ -7,6 +7,8 @@ export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const LOG_USER = 'LOG_USER';
 export const CONNECT_WEBSOCKET = 'CONNECT_WEBSOCKET';
 export const SAVE_NEW_MESSAGE = 'SAVE_NEW_MESSAGE';
+export const GET_USER_COLOR= 'GET_USER_COLOR';
+export const SAVE_USER_COLOR = 'SAVE_USER_COLOR';
 
 export const changeInputPseudo = (newValue) => ({
     type: CHANGE_INPUT_PSEUDO,
@@ -50,4 +52,15 @@ export const connectWebSocket = () => ({
 export const saveNewMessage = (message) => ({
     type: SAVE_NEW_MESSAGE,
     message,
+})
+
+export const getUserColor = (email) => ({
+    type: GET_USER_COLOR,
+    email, 
+})
+
+export const saveUserColor = (color) => ({
+    type: SAVE_USER_COLOR,
+    color,
+
 })

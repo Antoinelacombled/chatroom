@@ -7,6 +7,7 @@ import {
     LOG_USER,
     SUBMIT_LOGIN,
     SAVE_NEW_MESSAGE,
+    SAVE_USER_COLOR,
 } from '../actions/chat'
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
     inputEmail: '',
     inputPassword: '',
     loarding: false,
+    userColor: '',
 };
 
 const chatReducer = (state = initialState, action = {}) => {
@@ -102,7 +104,14 @@ const chatReducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 loading: true,
-            }
+            };
+
+        case SAVE_USER_COLOR:
+            return {
+                ...state,
+                userColor: action.color,
+            };
+            
         default:
             return state;
     }

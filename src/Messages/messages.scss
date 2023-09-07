@@ -20,6 +20,8 @@
         padding: 0.9em 1.3em;
         border-radius: 1.2rem;
 
+
+
         &::before {
             content: '';
             width: 0;
@@ -32,4 +34,15 @@
         }
     }
 
+    &.message--own {
+        .message-body {
+            background: rgb(70, 223, 88);
+            color: white;
+
+            &::before {
+                border-bottom: 10px solid rgb(70, 223, 88);
+                ;
+            }
+        }
+    }
 }

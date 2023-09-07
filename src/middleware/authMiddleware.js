@@ -1,4 +1,4 @@
-import { SUBMIT_LOGIN, logUser } from "../actions/chat";
+import { SUBMIT_LOGIN, logUser, getUserColor, GET_USER_COLOR, saveUserColor, } from "../actions/chat";
 import axios from "axios";
 
 // const authMiddleware = (store) => (next) => (action) => {
@@ -41,7 +41,7 @@ const authMiddleware = (store) => (next) => (action) => {
                 password: inputPassword,
             })
                 .then((response) => {
-                    console.log(response.data);
+
                     // on voudrait mettre à jour le state par rapport à la réponse
                     const actionToDispatch = logUser(response.data);
                     store.dispatch(actionToDispatch);
@@ -50,9 +50,27 @@ const authMiddleware = (store) => (next) => (action) => {
                 .catch((error) => {
                     console.warn(error);
                 });
+
+            store.dispatch(getUserColor(inputEmail));
+
             next(action);
             break;
         }
+
+        case GET_USER_COLOR:
+            console.log('action LOG_USER dans authMiddleWare');
+
+            axios.get(`http://localhost:3001/theme/${action.email}`)
+                .then((response) => {
+                    store.dispatch(saveUserColor(response.data));
+                }) 
+                .catch((error) => {
+                    console.warn(error)
+                });
+
+            next(action);
+            break;
+
         default:
             // on passe l'action au voisin (le middleware suivant, ou le store si on est le
             // dernier middleware)

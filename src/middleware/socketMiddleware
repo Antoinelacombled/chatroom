@@ -12,12 +12,11 @@ const socketMiddleware = (store) => (next) => (action) => {
             socket.on('send_message', (message) => {
 
                 const messageToSave = {
-                    id: message.id,  
+                    id: message.id,
                     author: message.author,
                     content: message.content,
-                    isMine: message.author === store.getState().pseudo,
                 };
-                
+
                 store.dispatch(saveNewMessage(messageToSave));
             });
 

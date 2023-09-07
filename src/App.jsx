@@ -20,7 +20,6 @@ const App = ({ authentified, loading, connect }) => {
     <div className='app'>
       <Messages />
       {authentified && <Form />}
-      {authentified && <Settings />}
       {!authentified && <Login />}
       {loading && (<div> Veuillez Patienter...</div>)}
     </div>
