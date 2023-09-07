@@ -6,57 +6,17 @@ import {
     CHANGE_INPUT_OF_LOGIN,
     LOG_USER,
     SUBMIT_LOGIN,
+    SAVE_NEW_MESSAGE,
 } from '../actions/chat'
 
 const initialState = {
     messages: [
-        {
-            id: 1,
-            author: 'Super Chat',
-            content: 'Chalut ça va?',
-            ismine: true,
-        },
-        {
-            id: 2,
-            author: 'Super Chat',
-            content: 'g faim',
-            ismine: true,
-        },
-        {
-            id: 3,
-            author: 'Super Chat',
-            content: 'g trop faim',
-            ismine: true,
-        },
-        {
-            id: 4,
-            author: 'Super Chat',
-            content: 'Croquette',
-            ismine: true,
-        },
-        {
-            id: 5,
-            author: 'Super Chat',
-            content: 'Croquette',
-            ismine: true,
-        },
-        {
-            id: 6,
-            author: 'Super Chat',
-            content: 'Croquette',
-            ismine: true,
-        },
-        {
-            id: 7,
-            author: 'Super Chat',
-            content: 'Croquette',
-            ismine: true,
-        },
+
     ],
     pseudo: '',
     inputPseudo: '',
     inputMessage: '',
-    authentified: true,
+    authentified: false,
     inputEmail: '',
     inputPassword: '',
     loarding: false,
@@ -71,6 +31,9 @@ const chatReducer = (state = initialState, action = {}) => {
                 inputPseudo: action.value,
             };
             break;
+
+
+
         case SAVE_PSEUDO:
             return {
                 ...state,
@@ -78,32 +41,40 @@ const chatReducer = (state = initialState, action = {}) => {
                 inputPseudo: ''
             };
             break;
+
+
+
         case CHANGE_INPUT_MESSAGE:
             return {
                 ...state,
                 inputMessage: action.value,
             };
             break;
-        case SEND_MESSAGE: {
-            const newId = state.messages.length + 1;
 
-            const newMessage = {
-                id: newId,
-                author: state.pseudo,
-                content: state.inputMessage,
-                isMine: true,
-            };
-            const newMessageArray = [
-                ...state.messages,
-                newMessage
-            ]
 
+
+        case SEND_MESSAGE:
             return {
                 ...state,
-                messages: newMessageArray,
                 inputMessage: '',
             };
+            break;
+
+
+
+        case SAVE_NEW_MESSAGE: {
+            const newMessagesArray = [
+                ...state.messages,
+                action.message,
+            ];
+            return {
+                ...state,
+                messages: newMessagesArray,
+            };
         }
+
+
+
         case CHANGE_INPUT_OF_LOGIN:
 
             if (action.inputIdentifier === 'email') {

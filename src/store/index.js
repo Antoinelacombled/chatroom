@@ -3,11 +3,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import logMiddleware from '../middleware/logMiddleware';
 import authMiddleware from '../middleware/authMiddleware';
+import socketMiddleware from '../middleware/socketMiddleware';
 
 const enhancers = composeWithDevTools(
     applyMiddleware(
         logMiddleware,
         authMiddleware,
+        socketMiddleware,
     )
 );
 

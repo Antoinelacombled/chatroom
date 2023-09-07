@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import './messages.scss';
 import Message from "./Message";
 
 
 const Messages = ({ messages }) => {
+    const refContainer = useRef(null);
 
-    console.log(messages);
+    useEffect(() => {
+
+        refContainer.current.scrollTo({
+            top: refContainer.current.scrollHeight,
+            left: 0,
+            behavior: 'smooth',
+        });
+    }, [messages]);
+
 
     return (
-        <div className="messages">
+        <div ref={refContainer} className="messages">
             {messages.map((message) => (
                 <Message key={message.id} {...message} />
             ))}

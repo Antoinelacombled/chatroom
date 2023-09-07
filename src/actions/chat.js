@@ -5,6 +5,8 @@ export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const CHANGE_INPUT_OF_LOGIN = 'CHANGE_INPUT_OF_LOGIN';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const LOG_USER = 'LOG_USER';
+export const CONNECT_WEBSOCKET = 'CONNECT_WEBSOCKET';
+export const SAVE_NEW_MESSAGE = 'SAVE_NEW_MESSAGE';
 
 export const changeInputPseudo = (newValue) => ({
     type: CHANGE_INPUT_PSEUDO,
@@ -40,3 +42,12 @@ export const logUser = (nickname) => ({
     type: LOG_USER,
     nickname,
 });
+
+export const connectWebSocket = () => ({
+    type: CONNECT_WEBSOCKET,
+});
+
+export const saveNewMessage = (message) => ({
+    type: SAVE_NEW_MESSAGE,
+    message,
+})
